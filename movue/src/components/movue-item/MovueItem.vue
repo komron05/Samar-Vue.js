@@ -1,9 +1,10 @@
 <template>
-        <li class="list-group-item d-flex justify-content-between favourite">
-            <span class="list-group-item-label ">Salom New-york</span>
-            <input type="number" class="list-group-item-input" defaultValue="999" />
+        <li class="list-group-item d-flex justify-content-between" :class="[{like: movue.like}, {favourite: movue.favourite}]" >
 
-            <div class="d-filex justify-content-center align-intems-center">
+            <span class="list-group-item-label ">{{ movue.name }}</span>
+            <input type="number" class="list-group-item-input" :value="movue.viewers" />
+
+            <div class="d-filex stara justify-content-center align-intems-center">
                  <button type="button" class="btn-cookie btn-sm">
                     <i class="fas fa-cookie"></i>
                  </button>
@@ -20,7 +21,13 @@
 </template>
 <script>
 export default {
-    
+    props:{
+        movue:{
+            type: Object,
+            required: true
+
+        }
+    }
 }
 </script>
 <style scoped>
@@ -70,11 +77,13 @@ export default {
     transform: translateX(30px);
     opacity: 0;
 }
-.list-group-item .like .fa-star {
+.list-group-item.like .fa-star {
    opacity: 1;
    transform: translateX(0);
 }
-.list-group-item.favourite .list-group-item-label,
+.list-group-item.favourite .list-group-item-label{
+    color: #e09f3e;
+}
 
 .list-group-item.favourite .list-group-item-input{
     color: #e09f3e;

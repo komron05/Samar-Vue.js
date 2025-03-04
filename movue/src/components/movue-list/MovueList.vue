@@ -1,18 +1,59 @@
 <template >
-    <ul class="movue-list isst-group">
-      <MovueItem />
-      <MovueItem />
-      <MovueItem />
+    <ul class="movue-list list-group">
+        
+        <MovueItem v-for="movue in movues" :movue="movue"/>
     </ul>
 </template>
+
 <script>
+
 import MovueItem from "../movue-item/MovueItem.vue"
+
 export default {
-    components:{
-    MovueItem
+    components:{MovueItem},
+
+    data() {
+        return {
+            movues:[ 
+                {
+                    name: 'Salom New-York',
+                    viewers :9199,
+                    favourite:false,
+                    like: true,
+                },
+                {
+                    name: 'Super Mane',
+                    viewers: 2999,
+                    favourite: true,
+                    like: false,
+
+
+                },
+                {
+                    name: 'Abdulhamid',
+                    viewers :12555,
+                    favourite: true,
+                    like: true,
+
+
+                },
+
+                {
+                    name: 'Uyda Yolgiz',
+                    viewers :8129,
+                    favourite: false,
+                    like: true,
+
+
+                }
+               
+            ]
+          
+        }
     }
+
 }
-</script>
+</script>;
 <style scoped>
 .movue-list {
       margin-top: 30px;
